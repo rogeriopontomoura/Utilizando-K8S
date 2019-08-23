@@ -1,0 +1,30 @@
+# Etapas
+steps:
+# Imagem base
+- name: 'gcr.io/cloud-builders/go'
+  # Id da etapa
+  id: "Instalando dependências do Go"  
+  # Argumentos para execução
+  args: ['install', '.']
+  # Variáveis passadas
+  env: ['PROJECT_ROOT=servidor-go']
+
+# Imagem base
+- name: 'gcr.io/cloud-builders/go'
+  # Id da etapa
+  id: "Roda o teste da aplicação"
+  # Argumentos para execução
+  args: ['test']
+  # Variáveis passadas
+  env: ['PROJECT_ROOT=servidor-go']
+
+# Imagem base
+- name: 'gcr.io/cloud-builders/docker'
+  # Id da etapa
+  id: "Cria a imagem da aplicação"
+  # Argumentos para execução
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/servidor-web-go', '.']
+
+# Faz o pull da imagem
+images:
+  - 'gcr.io/$PROJECT_ID/servidor-web-go'

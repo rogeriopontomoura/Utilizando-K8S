@@ -1,0 +1,10 @@
+apiVersion: v1 # Versão da API
+kind: PersistentVolumeClaim # Tipo dde objeto 
+metadata:
+ name: mysql-pv-claim
+spec: # Especificações
+ accessModes: # Modo de acesso
+  - ReadWriteOnce
+ resources: # Recursos
+  requests: # Requisição dos recursos
+   storage: 1Gi

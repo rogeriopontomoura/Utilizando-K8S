@@ -7,7 +7,7 @@ steps:
   # Argumentos para execução
   args: ['install', '.']
   # Variáveis passadas
-  env: ['PROJECT_ROOT=servidor-go']
+  env: ['PROJECT_ROOT=soma']
 
 # Imagem base
 - name: 'gcr.io/cloud-builders/go'
@@ -16,15 +16,15 @@ steps:
   # Argumentos para execução
   args: ['test']
   # Variáveis passadas
-  env: ['PROJECT_ROOT=servidor-go']
+  env: ['PROJECT_ROOT=soma']
 
 # Imagem base
 - name: 'gcr.io/cloud-builders/docker'
   # Id da etapa
   id: "Cria a imagem da aplicação"
   # Argumentos para execução
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/servidor-web-go', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/soma-go', '.']
 
 # Faz o pull da imagem
 images:
-  - 'gcr.io/$PROJECT_ID/servidor-web-go'
+  - 'gcr.io/$PROJECT_ID/soma-go'

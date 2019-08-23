@@ -21,4 +21,4 @@ WORKDIR $GOPATH
 EXPOSE 8000
 
 # Executa o programa
-CMD go run ./src/server.go
+CMD go run ./src/main.go
